@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>International Space Station &middot; Info</title>
+        <link rel="icon" type="image/x-icon" href="./img/ISS_emblem.png">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+        </script>
+
+        <script src=" https://unpkg.com/@joergdietrich/leaflet.terminator@1.0.0/L.Terminator.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header id="header">
+            <div>
+                <h1 class="logo">ISS &middot; INFO</h1>
+                <p class="logo-info">INFORMATION ABOUT THE <b>INTERNATIONAL SPACE STATION</b></p>
+            </div>
+            <div class="menu">
+                <a href="#section-map">LIVE LOCATION</a>
+                <a href="#section-onboard">WHO'S ONBOARD?</a>   
+                <a href="#section-about">ABOUT ISS</a>    
+                <a href="#footer">CREDITS</a>  
+            </div>
+        </header>
+
+        <section id="section-map">
+            <h1>LIVE LOCATION</h1>
+            <div id="map"></div>
+            <button id="center-map">Click here to center the map</button>
+        </section>
+
+        <section id="section-details">
+            <!-- <h1>DETAILS</h1> -->
+            <div><p>Above : <span id="above"></span></p></div>
+            <div><p>Latitude : <span id="latitude"></span></p></div>
+            <div><p>Longitude : <span id="longitude"></span></p></div>
+            <div><p>Altitude : <span id="altitude"></span></p></div>
+            <div><p>Velocity : <span id="velocity"></span></p></div>
+            <div><p>Visibility : <span id="visibility"></span></p></div>
+            <div><p>Orbits : 16 orbits</p></div>
+        </section>
+
+        <section id="section-onboard">
+            <h1>WHO'S ONBOARD ISS?</h1>
+            <div>
+                <h3>Number of astronauts onboard : <span id="onboard-number"></span></h3>
+            </div>
+            <div class="onboard-people">
+                <div id="onboard-people"></div>
+            </div>
+        </section>
+
+        <section id="section-about">
+            <h1>ABOUT ISS</h1>
+            <div>
+                <p>The International Space Station is a large spacecraft in orbit around Earth. It serves as a home where crews of astronauts and cosmonauts live. 
+                    The space station is also a unique science laboratory. Several nations worked together to build and use the space station. 
+                    The space station is made of parts that were assembled in space by astronauts. It orbits Earth at an average altitude of approximately 250 miles. 
+                    It travels at 17,500 mph. This means it orbits Earth every 90 minutes. NASA is using the space station to learn more about living and working in space.</p>
+                    <p>The space station has made it possible for people to have an ongoing presence in space. Human beings have been living in space every day since the first crew arrived. 
+                    The space station's laboratories allow crew members to do research that could not be done anywhere else. This scientific research benefits people on Earth. 
+                    Space research is even used in everyday life. Scientists also study what happens to the body when people live in microgravity for a long time. 
+                    NASA and its partners have learned how to keep a spacecraft working well. All of these lessons will be important for future space exploration.
+                    <a href="https://www.nasa.gov/audience/forstudents/5-8/features/nasa-knows/what-is-the-iss-58.html" target="_blank" rel="noreferrer"> Read more about ISS here.</a>
+                </p>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <p>Credits</p>
+            <a class="footer-a" href="https://leafletjs.com/" target="_blank" rel="noreferrer">Leaflet.js</a>
+            <a class="footer-a" href="https://www.openstreetmap.org/about" target="_blank" rel="noreferrer">OpenStreetMap</a>
+            <a class="footer-a" href="https://www.jawg.io/" target="_blank" rel="noreferrer">JawgMaps</a>
+            <a class="footer-a" href="https://joergdietrich.github.io/Leaflet.Terminator/" target="_blank" rel="noreferrer">Leaflet.Terminator</a>
+            <a class="footer-a" href="https://wheretheiss.at/" target="_blank" rel="noreferrer">WhereTheIss.at</a>
+            <a class="footer-a" href="http://open-notify.org/" target="_blank" rel="noreferrer">Open-Notify</a>
+            <a class="footer-a" href="https://opencagedata.com/" target="_blank" rel="noreferrer">OpenCage</a>
+            <a class="footer-a" href="https://www.mediawiki.org/wiki/API:Main_page" target="_blank" rel="noreferrer">MediaWiki</a>
+            <div class="github">
+                <div>
+                    <p>&copy; 2022 &nbsp; &middot;<a href="https://github.com/libinfaby" target="_blank" rel="noreferrer">Libin Faby</a></p> 
+                    <img src="./img/github-icon.svg" alt="">
+                </div>
+            </div>
+
+        </footer>
+
+        <script src="./js/index.js"></script>
+    </body>
+</html>
