@@ -55,7 +55,7 @@ async function getISSData() {
 
 getISSData();
 
-// setInterval(getISSData, 1000);
+setInterval(getISSData, 1000);
 
 
 // Center map, when a button is clicked
