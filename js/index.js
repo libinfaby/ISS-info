@@ -1,66 +1,3 @@
-// Fetch information about the people onboard ISS
-const onboard_api_url = 'http://api.open-notify.org/astros.json';
-
-async function getISSOnboard() {
-
-    const response = await fetch(onboard_api_url);
-    const data = await response.json();
-    const { number, people } = data;
-
-    document.getElementById('onboard-number').textContent = number;
-
-    people.forEach(function (person) {
-
-        const onboard_people = document.createElement('div');
-        const onboard_people_div = document.createElement('div');
-        document.getElementById('onboard-people').appendChild(onboard_people);
-        onboard_people.appendChild(onboard_people_div);
-
-
-        const onboard_person = document.createElement('h4');
-        const onboard_person_details = document.createElement('p');
-        const onboard_person_link = document.createElement('a');
-
-        Object.assign(onboard_person_link, {
-            href: 'https://en.wikipedia.org/wiki/' + person.name,
-            target: '_blank',
-            rel: 'noreferrer'
-        })
-
-        onboard_people_div.appendChild(onboard_person);
-        onboard_people_div.appendChild(onboard_person_details);
-        onboard_people_div.appendChild(onboard_person_link);
-
-        // Fetching details of each person
-        var people_wiki_url = "https://en.wikipedia.org/w/api.php"; 
-    
-        var params = {
-            action: 'query',
-            list: 'search',
-            srsearch: person.name,
-            format: 'json',
-            srlimit: 1,
-        };
-        
-        people_wiki_url = people_wiki_url + "?origin=*";
-        
-        Object.keys(params).forEach(function(key){people_wiki_url += "&" + key + "=" + params[key];});
-    
-        fetch(people_wiki_url)
-            .then(function(response){return response.json();})
-            .then(function(response) {
-                // if (response.query.search[0].title === person.name){
-                onboard_person.innerHTML += person.name;
-                onboard_person_details.innerHTML += response.query.search[0].snippet + "...";
-                onboard_person_link.innerHTML += "read more";
-                // }
-            })
-            .catch(function(error){console.log(error);});
-    });
-}
-
-getISSOnboard();
-
 // Creating the map object
 const map = L.map('map')
 
@@ -170,3 +107,67 @@ function getCountryData(latitude, longitude) {
     };
     request.send();  // make the request
 }
+
+
+// Fetch information about the people onboard ISS
+const onboard_api_url = 'https://cors-anywhere.herokuapp.com/http://api.open-notify.org/astros.json';
+
+async function getISSOnboard() {
+
+    const response = await fetch(onboard_api_url);
+    const data = await response.json();
+    const { number, people } = data;
+
+    document.getElementById('onboard-number').textContent = number;
+
+    people.forEach(function (person) {
+
+        const onboard_people = document.createElement('div');
+        const onboard_people_div = document.createElement('div');
+        document.getElementById('onboard-people').appendChild(onboard_people);
+        onboard_people.appendChild(onboard_people_div);
+
+
+        const onboard_person = document.createElement('h4');
+        const onboard_person_details = document.createElement('p');
+        const onboard_person_link = document.createElement('a');
+
+        Object.assign(onboard_person_link, {
+            href: 'https://en.wikipedia.org/wiki/' + person.name,
+            target: '_blank',
+            rel: 'noreferrer'
+        })
+
+        onboard_people_div.appendChild(onboard_person);
+        onboard_people_div.appendChild(onboard_person_details);
+        onboard_people_div.appendChild(onboard_person_link);
+
+        // Fetching details of each person
+        var people_wiki_url = "https://en.wikipedia.org/w/api.php"; 
+    
+        var params = {
+            action: 'query',
+            list: 'search',
+            srsearch: person.name,
+            format: 'json',
+            srlimit: 1,
+        };
+        
+        people_wiki_url = people_wiki_url + "?origin=*";
+        
+        Object.keys(params).forEach(function(key){people_wiki_url += "&" + key + "=" + params[key];});
+    
+        fetch(people_wiki_url)
+            .then(function(response){return response.json();})
+            .then(function(response) {
+                // if (response.query.search[0].title === person.name){
+                onboard_person.innerHTML += person.name;
+                onboard_person_details.innerHTML += response.query.search[0].snippet + "...";
+                onboard_person_link.innerHTML += "read more";
+                // }
+            })
+            .catch(function(error){console.log(error);});
+    });
+}
+
+getISSOnboard();
