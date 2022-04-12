@@ -110,7 +110,7 @@ function getCountryData(latitude, longitude) {
 
 
 // Fetch information about the people onboard ISS
-const onboard_api_url = 'https://cors-anywhere.herokuapp.com/http://api.open-notify.org/astros.json';
+const onboard_api_url = 'http://api.open-notify.org/astros.json';
 
 async function getISSOnboard() {
 
